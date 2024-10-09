@@ -1,11 +1,12 @@
 package tests;
 
+import baseUrl.CollectApiBaseUrl;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class C11_GET_ResponseBodyTestiListKullanimi {
+public class C11_GET_ResponseBodyTestiListKullanimi extends CollectApiBaseUrl {
 /*
 
     https://api.collectapi.com/health/dutyPharmacy?il=Kırıkkale url’ine
@@ -20,9 +21,20 @@ public class C11_GET_ResponseBodyTestiListKullanimi {
  */
     @Test
     public void test01(){
-        String url="https://api.collectapi.com/health/dutyPharmacy?il=Kırıkkale";
 
-       //  Response response=given().when().header("authorization", "apikey 0nyKmlNCRNlQ4D9oV1iTLG:6ZcCt0k9g6d1wo4cDQr0cg")
+        //1- Endpoint ve varsa Request Data Hazırlama
+
+        specCollectApi.pathParams("pp1","health","pp2","dutyPharmacy").queryParam("il","Kırıkkale");
+
+        //2-expected data oluşturma
+
+        //3-Response kaydetme
+        String apiKey="apikey 0txC96Rvi8RcARcrGNr5E1:7pFTec4Ofs5XuEEaKNi4WV";
+        Response response= given().spec(specCollectApi).when().header("authorization", apiKey).get("/{pp1}/{pp2}");
+
+        response.prettyPrint();
+
+
     }
 
 
