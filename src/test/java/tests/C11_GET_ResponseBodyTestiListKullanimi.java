@@ -2,9 +2,11 @@ package tests;
 
 import baseUrl.CollectApiBaseUrl;
 import io.restassured.response.Response;
+import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.*;
 
 public class C11_GET_ResponseBodyTestiListKullanimi extends CollectApiBaseUrl {
 /*
@@ -32,7 +34,12 @@ public class C11_GET_ResponseBodyTestiListKullanimi extends CollectApiBaseUrl {
         String apiKey="apikey 0txC96Rvi8RcARcrGNr5E1:7pFTec4Ofs5XuEEaKNi4WV";
         Response response= given().spec(specCollectApi).when().header("authorization", apiKey).get("/{pp1}/{pp2}");
 
-        response.prettyPrint();
+       //response.prettyPrint();
+
+        response.then().assertThat().statusCode(200).contentType("application/json")
+                                    .body("result.name",hasSize(5))
+                                    .body("result.name",hasItem("DELİCE ECZANESİ"))
+                                    .body("result.dist",hasItems("Merkez","Delice","Keskin"));
 
 
     }
