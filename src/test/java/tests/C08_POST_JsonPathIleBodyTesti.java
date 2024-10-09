@@ -25,7 +25,7 @@ public class C08_POST_JsonPathIleBodyTesti {
            “additionalneeds” : “wi-fi”
        }
 donen Response’un,
-   status code’unun 200,
+status code’unun 200,
  ve content type’inin application/json,
  ve response body’sindeki
        “firstname”in,“Ahmet”,
@@ -47,8 +47,8 @@ donen Response’un,
         bookingdates.put("checkout" , "2021-06-10");
 
         JSONObject reqBody=new JSONObject();
-        reqBody.put("firstname" , "Ahmet");
-        reqBody.put("lastname" , "Bulut");
+        reqBody.put("firstname" , "Murat");
+        reqBody.put("lastname" , "BABAYİĞİT");
         reqBody.put("totalprice" , 500);
         reqBody.put("depositpaid" , false);
         reqBody.put("bookingdates" , bookingdates);
@@ -57,13 +57,18 @@ donen Response’un,
 
         Response response=given().when().contentType(ContentType.JSON).body(reqBody.toString()).post(url);
         response.then().assertThat().statusCode(200).contentType("application/json")
-                .body("booking.firstname", equalTo("Ahmet"))
-                .body("booking.lastname", equalTo("Bulut"))
+                .body("booking.firstname", equalTo("Murat"))
+                .body("booking.lastname", equalTo("BABAYİĞİT"))
                 .body("booking.totalprice", equalTo(500))
                 .body("booking.depositpaid", equalTo(false))
                 .body("booking.bookingdates.checkin", equalTo("2021-06-01"))
-                .body("booking.bookingdates.checkou", equalTo("2021-06-10"))
+                .body("booking.bookingdates.checkout", equalTo("2021-06-10"))
                 .body("booking.additionalneeds", equalTo("wi-fi"));
+
+        // response.prettyPrint(); oluşan datayı yazdırır
+        // response.prettyPeek(); oluşan datayı header bilgileri ile yazdırır
+
+
 
 
 
