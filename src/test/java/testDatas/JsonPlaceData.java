@@ -2,6 +2,10 @@ package testDatas;
 
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
 public class JsonPlaceData {
 
     public static int basariliSC=200;
@@ -28,8 +32,16 @@ public class JsonPlaceData {
         jsonData.put("body",body);
         jsonData.put("userId",userId);
         jsonData.put("id",id);
-
         return jsonData;
+    }
 
+    public static Map<String, Object> MAPDataOlustur(String title,String body,double userId,double id){
+        Map<String, Object> reqMAPbody=new HashMap<>();
+        reqMAPbody.put("title",title);
+        reqMAPbody.put("body",body);
+        reqMAPbody.put("int",userId);
+        reqMAPbody.put("id",id);
+
+        return reqMAPbody;
     }
 }
