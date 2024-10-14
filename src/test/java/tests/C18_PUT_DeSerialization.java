@@ -14,11 +14,11 @@ import java.util.Map;
 import java.util.Objects;
 
 import static io.restassured.RestAssured.given;
+import static org.testng.AssertJUnit.assertEquals;
 
 public class C18_PUT_DeSerialization extends JsonPlaceHolderBaseUrl {
 
     /*
-
             https://jsonplaceholder.typicode.com/posts/70 url'ine
             asagidaki body’e sahip bir PUT request yolladigimizda
             donen response’in response body’sinin
@@ -30,6 +30,7 @@ public class C18_PUT_DeSerialization extends JsonPlaceHolderBaseUrl {
                 "userId": 10,
                 "id": 70
             }
+
             Expected Data :
             {
                 "title": "Ahmet",
@@ -41,7 +42,7 @@ public class C18_PUT_DeSerialization extends JsonPlaceHolderBaseUrl {
      */
 
     @Test
-    public void deSreaialization(){
+    public void deSerialization(){
         //1- EndPoint ve RequestBody hazırlama
         specJPH.pathParams("pp1","posts","pp2","70");
         Map<String, Object> reqMAPBody= JsonPlaceData.MAPDataOlustur("Ahmet","Merhaba",10.0,70.0);
@@ -53,12 +54,15 @@ public class C18_PUT_DeSerialization extends JsonPlaceHolderBaseUrl {
         //3-Response değer kaydedildi.
         Response response=given().spec(specJPH).contentType(ContentType.JSON).when().body(reqMAPBody).put("/{pp1}/{pp2}");
 
+        //response.prettyPrint();
+
         //4-Assertion ve gelen cevabın Map olarak kaydedilmesi
         Map<String, Object> resMAP=response.as(HashMap.class);
-        Assert.assertEquals(expMAPBody.get("title"),resMAP.get("title"));
-        Assert.assertEquals(expMAPBody.get("body"),resMAP.get("body"));
-        Assert.assertEquals(expMAPBody.get("userId"),resMAP.get("userId"));
-        Assert.assertEquals(expMAPBody.get("id"),resMAP.get("id"));
+
+     assertEquals(expMAPBody.get("title"),resMAP.get("title"));
+     assertEquals(expMAPBody.get("body"),resMAP.get("body"));
+     assertEquals(expMAPBody.get("userId"),resMAP.get("userId"));
+     assertEquals(expMAPBody.get("id"),resMAP.get("id"));
     }
 
 
