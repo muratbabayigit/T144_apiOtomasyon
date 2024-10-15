@@ -65,7 +65,7 @@ status code’unun 200,
                 .body("booking.bookingdates.checkout", equalTo("2021-06-10"))
                 .body("booking.additionalneeds", equalTo("wi-fi"));
 
-        // response.prettyPrint(); oluşan datayı yazdırır
+         response.prettyPrint(); //oluşan datayı yazdırır
         // response.prettyPeek(); oluşan datayı header bilgileri ile yazdırır
 
 

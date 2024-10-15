@@ -20,6 +20,23 @@ public class RestFullData {
        }
 
      */
+    public static JSONObject reqBodyOlustur(){
+        JSONObject innerData=new JSONObject();
+        innerData.put("checkin","2021-06-01");
+        innerData.put("checkout","2021-06-10");
+
+        JSONObject reqData=new JSONObject();
+        reqData.put("firstname" , "Ahmet");
+        reqData.put( "lastname" , "Bulut");
+        reqData.put("totalprice" , 500);
+        reqData.put("depositpaid" , false);
+        reqData.put("bookingdates",innerData);
+        reqData.put("additionalneeds" , "wi-fi");
+
+
+        return reqData;
+
+    }
 
     public static JSONObject bookingdatesOlustur(String checkin,String checkout){
         JSONObject bookingdates=new JSONObject();
