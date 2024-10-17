@@ -24,13 +24,14 @@ public class C05_GET_ResponseBodyTesti {
     @Test
     public void test01(){
         //1-
-        String url="https://jsonplaceholder.typicode.com/posts/44";
+        String url="https://jsonplaceholder.typicode.com/posts/11";
 
         //2-
         //sourda expexted body verilmemiş
 
         //3-
         Response response=given().when().get(url);
+        response.prettyPrint();
 
         //4-
         response.then().assertThat().statusCode(200)
