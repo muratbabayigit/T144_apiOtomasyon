@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class DELETE_ApiTest extends ReqResBaseUrl {
+public class P07_DELETE_ApiTest extends ReqResBaseUrl {
 
  /*
 

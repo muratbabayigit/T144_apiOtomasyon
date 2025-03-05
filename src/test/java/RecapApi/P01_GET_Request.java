@@ -1,16 +1,13 @@
 package RecapApi;
 
 import baseUrl.ReqResBaseUrl;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.Assertions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.Assertion;
 
 import static io.restassured.RestAssured.given;
 
-public class GET_Request extends ReqResBaseUrl {
+public class P01_GET_Request extends ReqResBaseUrl {
 
  /*
 

@@ -7,7 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pojos.ReqResPOJO;
 
-public class PUT_POJOApiTest extends ReqResBaseUrl {
+public class P05_PUT_POJOApiTest extends ReqResBaseUrl {
 
 /*
 

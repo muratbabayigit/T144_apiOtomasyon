@@ -1,14 +1,12 @@
 package RecapApi;
 
-import baseUrl.ReqResBaseUrl;
 import io.restassured.response.Response;
-import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class POST_ApiTest  {
+public class P04_POST_ApiTest {
 
 /*
 

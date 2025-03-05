@@ -2,11 +2,10 @@ package RecapApi;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.Assertions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class GET_List {
+public class P02_GET_List {
 
 
 /*
